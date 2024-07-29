@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 231, 184);
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; /* Add background color for better visibility */
+}
+
+#loginForm {
+    width: 100%; /* Ensure the form takes full width of the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%; /* Ensure the form group takes full width */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Make the label text bold for better readability */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%; /* Ensure the input takes full width of the form group */
+    padding: 8px;
+    border-radius: 50px; /* Changed border radius to 5px for consistency */
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+button {
+    margin-top: 10px;
+    width: 100%; /* Ensure the button takes full width of the form group */
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the text vertically */
+}
+
+button:hover {
+    background-color: #0056b3;
+}

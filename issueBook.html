@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLibrary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Issue Book</h1>
+    <form action="issuebook.php" method="post">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="roll" placeholder="Roll" required>
+        <input type="text" name="bookname" placeholder="Book Name" required>
+        <input type="text" name="author" placeholder="Author" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <label for="issue_date">Issue Date:</label>
+        <input type="date" id="issue_date" name="issue_date" required>
+        <label for="return_date">Return Date:</label>
+        <input type="date" id="return_date" name="return_date" required>
+        <button type="submit">Borrow Book</button>
+    </form>
+</body>
+</html>

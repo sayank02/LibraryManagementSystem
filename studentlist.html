@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student List</title>
+    <link rel="stylesheet" href="available.css" />
+</head>
+<body>
+    <div id="available">
+        <h1>Student List</h1>
+        <table id="availablebook1">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Roll</th>
+                    <th>Session</th>
+                    <th>Mobile</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $database = "collegesysdb";
+
+                // Create connection
+                $connect = new mysqli($servername, $username, $password, $database);
+
+                // Check connection
+                if ($connect->connect_error) {
+                    die("Connection failed: " . $connect->connect_error);
+                }
+
+                // Query to fetch student records
+                $sql = "SELECT * FROM studentlist";
+                $result = $connect->query($sql);
+
+                // Check for query errors
+                if (!$result) {
+                    die("Invalid query: " . $connect->error);
+                }
+
+                // Fetch and display student records
+                while ($row = $result->fetch_assoc()) {
+                    echo "
+                    <tr>
+                        <td>{$row['studentid']}</td>
+                        <td>{$row['name']}</td>
+                        <td>{$row['roll']}</td>
+                        <td>{$row['session']}</td>
+                        <td>{$row['mobile']}</td>
+                        <td>
+                            <form action='edit_student.php' method='get' style='display:inline;'>
+                                <input type='hidden' name='studentid' value='{$row['studentid']}'>
+                                <button type='submit'>Edit</button>
+                            </form>
+                            <form action='delete_student.php' method='post' style='display:inline;'>
+                                <input type='hidden' name='studentid' value='{$row['studentid']}'>
+                                <button type='submit'>Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    ";
+                }
+
+                // Close the database connection
+                $connect->close();
+                ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

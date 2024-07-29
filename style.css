@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inria Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-optical-sizing: auto;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  padding: 10px;
+  background-color: rgba(224, 192, 255, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.logodashboard img {
+  width: 75px;
+  height: auto;
+}
+
+.brand {
+  padding-left: 10px;
+}
+
+.nav .nav_list, .bottom_content .nav_list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.nav_list .nav_item, .bottom_content .nav_item {
+  padding: 10px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.nav_list .nav_item .nav_link, .bottom_content .nav_item .nav_link {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  text-decoration: none;
+  color: rgba(106, 0, 204, 0.75);
+  width: 100%;
+}
+
+.nav_item .nav_link .icon, .bottom_content .nav_item .nav_link .icon {
+  min-width: 60px;
+  font-size: 35px;
+}
+
+.nav_item:hover, .bottom_content .nav_item:hover {
+  background-color: rgb(182, 93, 255);
+  transition: all 0.5s;
+}
+
+.bottom_content {
+  padding: 0;
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Main Content Styles */
+#Main-content {
+  margin-left: 250px;
+  padding: 20px;
+  background-color: rgb(248, 248, 248);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  #Main-content {
+    margin-left: 200px;
+  }
+
+  .nav_list .nav_item .nav_link, .bottom_content .nav_item .nav_link {
+    font-size: 20px;
+  }
+
+  .nav_item .nav_link .icon, .bottom_content .nav_item .nav_link .icon {
+    font-size: 30px;
+  }
+
+  .logodashboard img {
+    width: 60px;
+  }
+
+  .menu-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  button {
+    cursor: pointer;
+    background-color: #3553ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    transform: translateX(-100%);
+  }
+
+  #Main-content {
+    margin-left: 0;
+    margin-top: 60px;
+  }
+
+  .sidebar.hidden {
+    transform: translateX(0);
+  }
+
+  .menu-btn {
+    display: block;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .nav .nav_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav_list .nav_item {
+    width: 100%;
+  }
+
+  .bottom_content {
+    margin-top: 20px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .brand {
+    padding-left: 0;
+    text-align: center;
+  }
+  button {
+    cursor: pointer;
+    background-color: #3553ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+/* AddBook Styles */
+h1 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #3553ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.menu-btn{
+  display: none;
+}
+/* Availablebook Styles */
+
+/* StudentList Styles */
+#studentsTable1 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#studentsTable1 th, #studentsTable1 td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#studentsTable1 th {
+  background-color: #0e0e0e;
+  color: white;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

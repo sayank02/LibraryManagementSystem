@@ -1,0 +1,53 @@
+Dashboard Frontend
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLibrary Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .card p {
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Library Dashboard</h1>
+        
+        <div class="card">
+            <h2>Total Number of Books</h2>
+            <p id="total-books">Loading...</p>
+        </div>
+        
+        <div class="card">
+            <h2>Total Student Count</h2>
+            <p id="total-students">Loading...</p>
+        </div>
+        
+    </div>
+  
+</body>
+</html>

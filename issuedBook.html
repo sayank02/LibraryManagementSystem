@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="available.css">
+    <title>DLibrary</title>
+</head>
+<body>
+    <div id="available">
+        <h1>Issued Books</h1>
+        <table id="availablebook1">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Roll</th>
+              <th>Book Name</th>
+              <th>Author</th>
+              <th>Subject</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $database = "collegesysdb";
+    
+            $connect = new mysqli($servername, $username, $password, $database);
+    
+            if ($connect->connect_error) {
+              die("Connection failed: " . $connect->connect_error);
+            }
+    
+            $sql = "SELECT * FROM issuedbook"; // Make sure the table name matches your database
+            $result = $connect->query($sql);
+    
+            if (!$result) {
+              die("Invalid query: " . $connect->error);
+            }
+    
+            while ($row = $result->fetch_assoc()) {
+              echo "
+              <tr>
+                <td>{$row['name']}</td>
+                <td>{$row['roll']}</td>
+                <td>{$row['bookname']}</td>
+                <td>{$row['author']}</td>
+                <td>{$row['subject']}</td>
+                <td>
+                  <form action='return_book.php' method='post'>
+                    <input type='hidden' name='roll' value='{$row['roll']}'>
+                    <button type='submit'>Return</button>
+                  </form>
+                </td>
+              </tr>
+              ";
+            }
+    
+            $connect->close();
+            ?>
+          </tbody>
+        </table>
+      </div>
+</body>
+</html>

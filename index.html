@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLibrary</title>
+    
+    <style>body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+    }
+    
+    header {
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+    
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333333;
+        transition: opacity 0.3s ease;
+    }
+    
+    .nav-links {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .nav-links li {
+        margin-left: 20px; /* Space between menu items */
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: #333333;
+        font-size: 16px;
+        padding: 8px 12px; /* Padding around text for better click area */
+        transition: color 0.3s ease; /* Smooth transition for color change */
+    }
+    
+    .nav-links a:hover {
+        color: #d3bce6; /* Change color on hover for better visibility */
+    }
+    
+    .request-demo {
+        background-color: #d3bce6;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .bar {
+        height: 3px;
+        width: 25px;
+        background-color: #333333;
+        margin: 4px 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    
+    main {
+        padding-top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 50px 20px;
+    }
+    
+    .hero {
+        display: flex;
+        align-items: center; /* Vertically center items */
+        justify-content: space-between; /* Space items out evenly */
+        height: 100vh; /* Full viewport height */
+        padding: 20px; /* Add padding around the section */
+        background-color: #f4f4f4; /* Optional: Background color for the section */
+    }
+    
+    .hero-text {
+        flex: 1; /* Allows the text to take up available space */
+        max-width: 50%; /* Restrict the width of the text section */
+        padding-right: 20px; /* Add some space between text and image */
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem; /* Adjust size as needed */
+        margin-bottom: 20px;
+    }
+    
+    .hero-text p {
+        font-size: 1.2rem; /* Adjust size as needed */
+        margin-bottom: 20px;
+    }
+    
+    .hero-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff; /* Button color */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    
+    .hero-image {
+        flex: 1; /* Allows the image to take up available space */
+        max-width: 50%; /* Restrict the width of the image section */
+        height: auto; /* Maintain aspect ratio of the image */
+    }
+    
+    /* Ensure the hero section is responsive */
+    @media (max-width: 768px) {
+        .hero {
+            flex-direction: column; /* Stack items vertically on smaller screens */
+            text-align: center; /* Center text on smaller screens */
+        }
+    
+        .hero-text, .hero-image {
+            max-width: 100%; /* Full width on smaller screens */
+            padding-right: 0; /* Remove right padding on smaller screens */
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            border-top: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .nav-links li {
+            margin: 15px 0; /* More space between items on small screens */
+        }
+    
+        .nav-links.active {
+            display: flex;
+        }
+    
+        .menu-toggle {
+            display: flex;
+        }
+    
+        .logo.hidden {
+            opacity: 0;
+        }
+    
+        .hero {
+            flex-direction: column;
+            text-align: center;
+        }
+    
+        .hero h1 {
+            font-size: 36px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 28px;
+        }
+    
+        .hero p {
+            font-size: 16px;
+        }
+    
+        .hero-button {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">DLibrary</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="LoginPage.html">Login</a></li>
+                <li><a href="register.html" class="request-demo">Register</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Simplify Access<br>Elevate Experiences</h1>
+                <p>The Future of Library Management</p>
+                <a href="#" class="hero-button">Request Demo</a>
+            </div>
+            <img src="hero-image.jpg" alt="Library Management Illustration" class="hero-image">
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

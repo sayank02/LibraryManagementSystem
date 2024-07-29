@@ -1,0 +1,144 @@
+Frontend for whole Page
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/public/Images/Google.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>DLibrary</title>
+  </head>
+  <body>
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <div class="heading">
+        <div class="logo">
+          <div class="logodashboard">
+            <img src="Images/Library_logo.png" alt="Library Logo" />
+          </div>
+          <div class="brand">
+            <h1 class="text">DLibrary</h1>
+          </div>
+        </div>
+        <!-- Menu section or sidebar -->
+        <div class="nav">
+          <ul class="nav_list">
+            <li class="nav_item">
+              <a
+                class="nav_link"
+                href="#Dashboard"
+                onclick="navigateTo('Dashboard')"
+              >
+                <span class="material-symbols-outlined icon"> home </span>&nbsp;
+                <span class="text">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav_item">
+              <a
+                class="nav_link"
+                href="#issuebook"
+                onclick="navigateTo('issueBook')"
+              >
+                <span class="material-symbols-outlined icon"> checkbook </span
+                >&nbsp;
+                <span class="text">Issue Book</span>
+              </a>
+            </li>
+            <li class="nav_item">
+              <a
+                class="nav_link"
+                href="#issuedBook"
+                onclick="navigateTo('issuedBook')"
+              >
+                <span class="material-symbols-outlined icon"> menu_book </span
+                >&nbsp;
+                <span class="text">Issued Book</span>
+              </a>
+            </li>
+            <li class="nav_item">
+              <a
+                class="nav_link"
+                href="#availableBook"
+                onclick="navigateTo('available')"
+              >
+                <span class="material-symbols-outlined icon">
+                  library_books </span
+                >&nbsp;
+                <span class="text">Available Book</span>
+              </a>
+            </li>
+            <li class="nav_item">
+              <a
+                class="nav_link"
+                href="#studentlist"
+                onclick="navigateTo('studentlist')"
+              >
+                <span class="material-symbols-outlined icon"> group </span
+                >&nbsp;
+                <span class="text">Student List</span>
+              </a>
+            </li>
+            <li class="nav_item">
+              <a
+                class="nav_link"
+                href="#AddBook"
+                onclick="navigateTo('AddBook')"
+              >
+                <span class="material-symbols-outlined icon"> add_circle </span
+                >&nbsp;
+                <span class="text">Add Book</span>
+              </a>
+            </li>
+            <li class="nav_item">
+              <a
+                class="nav_link"
+                href="#AddStudent"
+                onclick="navigateTo('AddStudent')"
+              >
+                <span class="material-symbols-outlined icon"> person_add </span
+                >&nbsp;
+                <span class="text">Add Student</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="bottom_content">
+          <ul class="nav_list">
+            <li class="nav_item">
+              <a class="nav_link" href="#" onclick="navigateTo('settings')">
+                <span class="material-symbols-outlined icon"> settings </span
+                >&nbsp;
+                <span class="text">Settings</span>
+              </a>
+            </li>
+            <li class="nav_item">
+              <a class="nav_link" href="index.html">
+                <span class="material-symbols-outlined icon"> logout </span
+                >&nbsp;
+                <span class="text">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Menu Button -->
+    <button class="menu-btn" id="menu-btn">
+        <span class="material-symbols-outlined"> menu </span>
+      </button>
+    <!-- Page within Page -->
+    <div id="Main-content">
+    </div>
+    <script src="Behaviour.js">
+      function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('hidden');
+        }
+    </script>
+  </body>
+</html>
